@@ -39,6 +39,14 @@ steps:
     command: 'restore'
     projects: '**/*.csproj'
 
+- template:
+  parameters:
+    buildConfiguration: 'Debug'
+
+- template:
+  parameters:
+    buildConfiguration: 'Release'
+
 - task: DotNetCoreCLI@2
   displayName: 'Build the project - $(buildConfiguration)'
   inputs:
@@ -60,4 +68,4 @@ steps:
   displayName: 'Publish Artifact: drop'
   condition: succeeded()
   inputs:
-    pathToPublish: $(Build.ArtifactStagingDirectory/Release)/Tailspin.SpaceGame.Web.zip
+    pathToPublish: $(Build.ArtifactStagingDirectory/$(buildConfiguration))/Tailspin.SpaceGame.Web.zip
