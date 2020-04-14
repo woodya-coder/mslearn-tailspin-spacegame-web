@@ -51,4 +51,4 @@ steps:
   displayName: 'Publish Artifact: drop'
   condition: succeeded()
   inputs:
-    pathToPublish: $(Build.ArtifactStagingDirectory/$(buildConfiguration))/Tailspin.SpaceGame.Web.zip
+    pathToPublish: $(Build.ArtifactStagingDirectory)/$(buildConfiguration)/Tailspin.SpaceGame.Web.zip
